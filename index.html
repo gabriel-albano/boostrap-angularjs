@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html ng-app="bootstrap">
+
+<head>
+  <title>Session Expiration with ng-idle, Bootstrap and Boostwatch</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.js"></script>
+  <script src="../js/ui-bootstrap-tpls-0.14.1.min.js"></script>
+  <script src="../js/index.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/superhero/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body ng-controller="NavBarCtrl">
+
+  <!-- Header -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Albano</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#" ng-click="mnuOption(1,'md')">Option 1</a></li>
+          <li><a href="#" ng-click="mnuOption(2,'sm')">Option 2</a></li>
+          <li class="dropdown" uib-dropdown is-open="status.isopen">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" uib-dropdown-toggle role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#" ng-click="mnuOption(3,'md')">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!--
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Body -->
+  <div class="container">
+    <!-- Alerts -->
+    <div ng-controller="AlertCtrl">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Alerts</h2>
+          <hr/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <uib-alert type="warning" close="bCloseWARN=1" ng-hide="bCloseWARN">
+            <h4>Warning!</h4>Best check yo self, you are not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          </uib-alert>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <uib-alert type="danger" close="bCloseDANG=1" ng-hide="bCloseDANG">
+            <strong>'Oh snap!</strong> Change a few things up and try <a href='#'>submitting</a> again.
+          </uib-alert>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <uib-alert type="success" close="bCloseOK=1" ng-hide="bCloseOK">
+            Well done! You successfully read this
+            <strong>important</strong> alert message.
+          </uib-alert>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <uib-alert type="info" close="bCloseINFO=1" ng-hide="bCloseINFO">
+            Heads up! This alert needs your attention, but it is not super important.
+          </uib-alert>
+        </div>
+      </div>
+    </div>
+
+    <!--Pop Ups -->
+    <script type="text/ng-template" id="option1.html">
+      <div class="modal-header">
+        <h3 class="modal-title">Option 1 Title</h3>
+      </div>
+      <div class="modal-body">
+        <p>Option 1 modal body</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+    </script>
+    <script type="text/ng-template" id="option2.html">
+      <div class="modal-header">
+        <h3 class="modal-title">Option 2 Title</h3>
+      </div>
+      <div class="modal-body">
+        <p>Option 2 modal body</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+    </script>
+  </div>
+
+
+  <!-- Footer -->
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <p>Copyright (c) 2015 <a href="https://github.com/gabriel-albano" target="new">Gabriel Albano</a>. Licensed under the MIT license.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

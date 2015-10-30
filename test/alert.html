@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="ui.bootstrap.demo">
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.1.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+<div ng-controller="AlertDemoCtrl">
+  <script type="text/ng-template" id="alert.html">
+    <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+      <div ng-transclude></div>
+    </div>
+  </script>
+
+  <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+  <!--<uib-alert template-url="alert.html">A happy alert!</uib-alert>-->
+  <button type="button" class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+</div>
+  </body>
+</html>
+<script>
+
+var app = angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
+app.controller('AlertDemoCtrl', function ($scope) {
+  $scope.alerts = [];
+  /*$scope.alerts = [
+    { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
+    { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+  ];*/
+
+  $scope.addAlert = function() {
+    $scope.alerts.push({type: 'info', msg: 'Another alert!'});
+  };
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
+});
+</script>
