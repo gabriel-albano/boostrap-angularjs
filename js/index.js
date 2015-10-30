@@ -1,47 +1,47 @@
-var app = angular.module('bootstrap', ['ngAnimate', 'ngSanitize','ui.bootstrap']);
+var app = angular.module('bootstrap', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 
 app.controller('NavBarCtrl', function($scope, $uibModal) {
 
-  $scope.mnuOption = function (option, size) {
+  $scope.mnuOption = function(option, size) {
     var modalInstance;
-    if (option===1) {
+    if (option === 1) {
       modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
         templateUrl: 'option1.html',
         controller: 'ModalCtrl',
         size: size,
         resolve: {
-          foo: function () {
+          foo: function() {
             return null;
           }
         }
       });
-    } else if (option===2) {
+    } else if (option === 2) {
       modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
         templateUrl: 'option2.html',
         controller: 'ModalCtrl',
         size: size,
         resolve: {
-          foo: function () {
+          foo: function() {
             return null;
           }
         }
       });
     }
 
-    };
+  };
 
 });
 
-app.controller('ModalCtrl', function ($scope, $modalInstance, foo) {
+app.controller('ModalCtrl', function($scope, $modalInstance, foo) {
 
-  $scope.ok = function () {
+  $scope.ok = function() {
     console.log("OK button was clicked")
     $modalInstance.close(0);
   };
 
-  $scope.cancel = function () {
+  $scope.cancel = function() {
     console.log("Cancel button was clicked")
     $modalInstance.dismiss('cancel');
   };
